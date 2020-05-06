@@ -4,6 +4,7 @@ Advanced Jail for ESX - Made by Human Tree92 ([Velociti Entertainment Customs & 
 # Helpfull Info:
 * Allows police to Jail Players in Multiple Locations
 * Players can Escape if you set it in the config.lua
+* Players can Change into/out of Prison Clothing
 
 # Requirements:
 * Required:
