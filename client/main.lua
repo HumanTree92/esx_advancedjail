@@ -382,15 +382,24 @@ function PrisonClothingMenu()
 	end)
 end
 
+-- Entered Marker
 AddEventHandler('esx_advancedjail:hasEnteredMarker', function(zone)
 	CurrentAction = 'prison_clothing_menu'
 	CurrentActionMsg = _U('press_access')
 	CurrentActionData = {}
 end)
 
+-- Exited Marker
 AddEventHandler('esx_advancedjail:hasExitedMarker', function(zone)
 	ESX.UI.Menu.CloseAll()
 	CurrentAction = nil
+end)
+
+-- Resource Stop
+AddEventHandler('onResourceStop', function(resource)
+	if resource == GetCurrentResourceName() then
+		ESX.UI.Menu.CloseAll()
+	end
 end)
 
 -- Enter / Exit marker events & Draw Markers
