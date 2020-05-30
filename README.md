@@ -1,6 +1,8 @@
 # About esx_advancedjail:
 Advanced Jail for ESX - Made by Human Tree92 ([Velociti Entertainment Customs & Wiki](http://www.velocitientertainment.com/customs/))
 
+I can not Guarantee that this will work with the Latest es_extended V2.
+
 # Helpfull Info:
 * Allows police to Jail Players in Multiple Locations
 * Players can Escape if you set it in the config.lua
@@ -8,7 +10,7 @@ Advanced Jail for ESX - Made by Human Tree92 ([Velociti Entertainment Customs & 
 
 # Requirements:
 * Required:
-  * [es_extended](https://github.com/ESX-Org/es_extended)
+  * [es_extended V1 Final](https://github.com/ESX-Org/es_extended) or [extendedmode](https://github.com/extendedmode/extendedmode)
   * [esx_policejob](https://github.com/ESX-Org/esx_policejob)
 * Optional:
   * NONE
