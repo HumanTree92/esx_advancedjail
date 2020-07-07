@@ -190,6 +190,11 @@ end)
 RegisterNetEvent('esx_advancedjail:removeInventory')
 AddEventHandler('esx_advancedjail:removeInventory', function(amount)
 	local xPlayer = ESX.GetPlayerFromId(source)
+
+	for i=1, #xPlayer.loadout, 1 do
+		xPlayer.removeWeapon(xPlayer.loadout[i].name)
+	end
+
 	if Config.RemoveInventory then
 		for i=1, #xPlayer.inventory, 1 do
 			if xPlayer.inventory[i].count > 0 then
