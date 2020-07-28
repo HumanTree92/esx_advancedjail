@@ -3,7 +3,7 @@ Config = {}
 Config.Locale = 'en'
 Config.MenuAlign = 'top-left'
 
-Config.DrawDistance = 100.0
+Config.DrawDistance = 10
 Config.MarkerInfo = {Type = 27, r = 100, g = 100, b = 204, x = 1.5, y = 1.5, z = 2.0}
 Config.JailTimeSyncInterval = 60000 * 5
 
