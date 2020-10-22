@@ -346,7 +346,7 @@ function PrisonClothingMenu()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'prisonclothing', {
 		title = _U('clothing_menu'),
-		align = Config.MenuAlign,
+		align = GetConvar('esx_MenuAlign', 'top-left'),
 		elements = {
 			{label = _U('citizen_wear'), value = 'citizen_wear'},
 			{label = _U('jail_wear'), value = 'jail_wear'},

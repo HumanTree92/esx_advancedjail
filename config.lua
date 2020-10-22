@@ -1,7 +1,6 @@
 Config = {}
 
 Config.Locale = 'en'
-Config.MenuAlign = 'top-left'
 
 Config.DrawDistance = 10
 Config.MarkerInfo = {Type = 27, r = 100, g = 100, b = 204, x = 1.5, y = 1.5, z = 2.0}
@@ -25,7 +24,7 @@ Config.DrawMarkers = {
 	MR2 = false, -- MissionRow2
 	MR3 = false, -- MissionRow3
 	BP0 = false, -- BolingBroke0
-	BP1 = true -- BolingBroke1
+	BP1 = false -- BolingBroke1
 }
 
 -- Jail Locations

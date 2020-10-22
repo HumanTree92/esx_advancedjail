@@ -19,11 +19,11 @@ Advanced Jail for ESX V1 Final or EXM - Made by Human Tree92 ([Velociti Entertai
   * NONE
 
 # Download & Installation:
-1) Download the .zip.
-2) Extract the .zip or Open the .zip.
-3) Import the `esx_advancedjail.sql` into your database.
-4) Place `esx_advancedjail` in your ESX Directory
-5) Add `start esx_advancedjail` to your server.cfg
+1) Download Master or Release & Extract the .zip or Open the .zip.
+2) Import the `esx_advancedjail.sql` into your database.
+3) Place `esx_advancedjail` in your ESX Directory
+4) Add `start esx_advancedjail` to your server.cfg
+5) Add `setr esx_MenuAlign "top-right"` to your server.cfg
 
 # Other Scripts:
 If you like this please check out some of my other stuff like
