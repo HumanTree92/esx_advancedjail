@@ -203,7 +203,7 @@ AddEventHandler('esx_advancedjail:jailPlayer', function(_jailTime, _jailLoc, _na
 				JailLoc = Config.JailLocations.BolingBroke1
 				UnJailLoc = Config.JailLocations.BolingBroke0
 
-				if #(GetEntityCoords(playerPed) - JailLoc) > 10 then
+				if #(GetEntityCoords(playerPed) - JailLoc) > 25 then
 					if Config.AllowEscape then
 						TriggerServerEvent('esx_advancedjail:playerEscape', name, 'run', 'bp')
 						TriggerServerEvent('esx_advancedjail:rununjail')
