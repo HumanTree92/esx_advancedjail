@@ -18,7 +18,7 @@ Config.DrinkAmount = 5
 
 -- DrawMarkers | Use only if you want to see a Marker around Jail Positions
 Config.DrawMarkers = {
-	Show = true, -- Master Toggle
+	Show = false, -- Master Toggle
 	MR0 = false, -- MissionRow0
 	MR1 = false, -- MissionRow1
 	MR2 = false, -- MissionRow2
