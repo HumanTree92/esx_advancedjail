@@ -11,7 +11,7 @@ Locales ['en'] = {
   ['player_escaped'] = '~r~%s ~s~has Escaped from ~r~%s ~s~Jail!!!',
   ['player_escape_attempt'] = '~r~%s ~s~has Attempted to Escape from ~r~%s ~s~Jail!!!',
   ['escape_attempt'] = 'you are NOT allowed to Escape Jail!',
-  ['remaining_msg'] = 'there remains ~b~%s~s~ seconds until you are released from Jail.',
+  ['remaining_msg'] = 'there remains ~b~%s Minutes %s Seconds~s~ until you are released from Jail.',
   ['you_ran'] = '~r~You have ran from Jail!',
   -- Add to esx_policejob
   ['jail'] = 'jail',

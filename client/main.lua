@@ -103,6 +103,7 @@ AddEventHandler('esx_advancedjail:jailPlayer', function(_jailTime, _jailLoc, _na
 	location = _jailLoc
 	name = _name
 	local playerPed = PlayerPedId()
+	StartJailTimer()
 
 	if location == 'mr1' then -- MissionRow1
 		JailLoc = Config.JailLocations.MissionRow1
@@ -229,22 +230,55 @@ AddEventHandler('esx_advancedjail:jailPlayer', function(_jailTime, _jailLoc, _na
 	end
 end)
 
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
+-- Jail Timer
+function DrawGenericTextThisFrame()
+	SetTextFont(4)
+	SetTextScale(0.0, 0.5)
+	SetTextColour(255, 255, 255, 255)
+	SetTextDropshadow(0, 0, 0, 0, 255)
+	SetTextDropShadow()
+	SetTextOutline()
+	SetTextCentre(true)
+end
 
-		if jailTime > 0 and isInJail then
-			if fastTimer < 0 then
-				fastTimer = jailTime
-			end
+function secondsToClock(seconds)
+	local seconds, hours, mins, secs = tonumber(seconds), 0, 0, 0
 
-			draw2dText(_U('remaining_msg', ESX.Round(fastTimer)), 0.400, 0.001)
-			fastTimer = fastTimer - 0.01
-		else
-			Citizen.Wait(500)
-		end
+	if seconds <= 0 then
+		return 0, 0
+	else
+		local hours = string.format('%02.f', math.floor(seconds / 3600))
+		local mins = string.format('%02.f', math.floor(seconds / 60 - (hours * 60)))
+		local secs = string.format('%02.f', math.floor(seconds - hours * 3600 - mins * 60))
+
+		return mins, secs
 	end
-end)
+end
+
+function StartJailTimer()
+	Citizen.CreateThread(function()
+		while jailTime > 0 and isInJail do
+			Citizen.Wait(1000)
+
+			if jailTime > 0 then
+				jailTime = jailTime - 1
+			end
+		end
+	end)
+
+	Citizen.CreateThread(function()
+		local text
+
+		while jailTime > 0 and isInJail do
+			Citizen.Wait(0)
+			text = _U('remaining_msg', secondsToClock(jailTime))
+			DrawGenericTextThisFrame()
+			SetTextEntry('STRING')
+			AddTextComponentString(text)
+			DrawText(0.5, 0.8)
+		end
+	end)
+end
 
 RegisterNetEvent('esx_advancedjail:unjailPlayer')
 AddEventHandler('esx_advancedjail:unjailPlayer', function()
@@ -280,11 +314,11 @@ Citizen.CreateThread(function()
 			end
 
 			if Config.DrawMarkers.BP0 then
-				DrawMarker(1, Config.JailLocations.BolingBroke0, 0, 0, 0, 0, 0, 0, 10.0 * 2, 2.5 * 2, 0.8001, 0, 155, 255, 200, 0,0, 0,0)
+				DrawMarker(1, Config.JailLocations.BolingBroke0, 0, 0, 0, 0, 0, 0, 2.5 * 2, 2.5 * 2, 0.8001, 0, 155, 255, 200, 0,0, 0,0)
 			end
 
 			if Config.DrawMarkers.BP1 then
-				DrawMarker(1, Config.JailLocations.BolingBroke1, 0, 0, 0, 0, 0, 0, 10.0 * 2, 10.0 * 2, 0.8001, 0, 155, 255, 200, 0,0, 0,0)
+				DrawMarker(1, Config.JailLocations.BolingBroke1, 0, 0, 0, 0, 0, 0, 25.0 * 2, 25.0 * 2, 0.8001, 0, 155, 255, 200, 0,0, 0,0)
 			end
 		end
 	end
@@ -303,21 +337,6 @@ function FloatingJailText()
 	end
 end
 
-function draw2dText(text, x, y)
-	SetTextFont(4)
-	SetTextProportional(1)
-	SetTextScale(0.45, 0.45)
-	SetTextColour(255, 255, 255, 255)
-	SetTextDropshadow(0, 0, 0, 0, 255)
-	SetTextEdge(1, 0, 0, 0, 255)
-	SetTextDropShadow()
-	SetTextOutline()
-
-	BeginTextCommandDisplayText('STRING')
-	AddTextComponentSubstringPlayerName(text)
-	EndTextCommandDisplayText(x, y)
-end
-
 function Draw3DText(x, y, z, textInput, fontId, scaleX, scaleY)
 	local px, py, pz = table.unpack(GetGameplayCamCoords())
 	local dist = GetDistanceBetweenCoords(px, py, pz, x, y, z, 1)
@@ -332,7 +351,7 @@ function Draw3DText(x, y, z, textInput, fontId, scaleX, scaleY)
 	SetTextEdge(2, 0, 0, 0, 150)
 	SetTextDropShadow()
 	SetTextOutline()
-	SetTextEntry("STRING")
+	SetTextEntry('STRING')
 	SetTextCentre(1)
 	AddTextComponentString(textInput)
 	SetDrawOrigin(x,y,z+2, 0)

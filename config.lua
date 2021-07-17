@@ -4,7 +4,7 @@ Config.Locale = 'en'
 
 Config.DrawDistance = 10
 Config.MarkerInfo = {Type = 27, r = 100, g = 100, b = 204, x = 1.5, y = 1.5, z = 2.0}
-Config.JailTimeSyncInterval = 60000 * 5
+Config.JailTimeSyncInterval = 60000 * 1
 
 Config.AllowEscape = false -- If true then players can Escape Jail & will notify Police.
 Config.OnlyFirstname = false -- If true it will only show 1st Name if someone tries to Escape.
