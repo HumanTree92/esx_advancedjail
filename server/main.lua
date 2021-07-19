@@ -191,8 +191,10 @@ RegisterNetEvent('esx_advancedjail:removeInventory')
 AddEventHandler('esx_advancedjail:removeInventory', function(amount)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	for i=1, #xPlayer.loadout, 1 do
-		xPlayer.removeWeapon(xPlayer.loadout[i].name)
+	if Config.RemoveLoadout then
+		for i=1, #xPlayer.loadout, 1 do
+			xPlayer.removeWeapon(xPlayer.loadout[i].name)
+		end
 	end
 
 	if Config.RemoveInventory then
@@ -210,8 +212,8 @@ AddEventHandler('esx_advancedjail:removeInventory', function(amount)
 	end
 
 	if Config.GiveFoodDrink then
-		xPlayer.addInventoryItem('bread', Config.FoodAmount)
-		xPlayer.addInventoryItem('water', Config.DrinkAmount)
+		xPlayer.addInventoryItem(Config.FoodItem, Config.FoodAmount)
+		xPlayer.addInventoryItem(Config.DrinkItem, Config.DrinkAmount)
 	end
 
 	ESX.SavePlayer(xPlayer)
