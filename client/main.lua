@@ -2,26 +2,11 @@ local HasAlreadyEnteredMarker, isInJail, unJail = false, false, false
 local LastZone, CurrentAction, CurrentActionMsg
 local CurrentActionData = {}
 local jailTime, fastTimer = 0, 0
-ESX = nil
-
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-
-	while ESX.GetPlayerData().job == nil do
-		Citizen.Wait(10)
-	end
-
-	ESX.PlayerData = ESX.GetPlayerData()
-
-	FloatingJailText()
-end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
 	ESX.PlayerData = xPlayer
+	FloatingJailText()
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -296,6 +281,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
+
 		if Config.DrawMarkers.Show then
 			if Config.DrawMarkers.MR0 then
 				DrawMarker(1, Config.JailLocations.MissionRow0, 0, 0, 0, 0, 0, 0, 2.5 * 2, 2.5 * 2, 0.8001, 0, 155, 255, 200, 0,0, 0,0)
@@ -326,7 +312,8 @@ end)
 
 function FloatingJailText()
 	while true do
-		Citizen.Wait(0)			
+		Citizen.Wait(0)
+
 		-- Mission Row
 		if GetDistanceBetweenCoords(463.8985, -998.0825, 23.95, GetEntityCoords(GetPlayerPed(-1))) < 5.0 then
 			-- Default Jail Cells
@@ -362,7 +349,6 @@ end
 -- Prison Clothing Menu
 function PrisonClothingMenu()
 	ESX.UI.Menu.CloseAll()
-
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'prisonclothing', {
 		title = _U('clothing_menu'),
 		align = GetConvar('esx_MenuAlign', 'top-left'),

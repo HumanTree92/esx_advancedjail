@@ -19,6 +19,8 @@ Locales ['en'] = {
   ['invalid_amount'] = 'Invalid Time Amount. Example: 5 = 5 Minutes',
   ['jail_menu'] = 'Choose Jail Location',
   ['mission_row'] = 'Mission Row',
+  ['sandy_shores'] = 'Sandy Shores',
+  ['paleto_bay'] = 'Paleto Bay',
   ['bolingbroke_pen'] = 'Bolingbroke Penitentiary',
   ['mission_row_1'] = 'Mission Row Cell 1',
   ['mission_row_2'] = 'Mission Row Cell 2',
