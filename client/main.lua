@@ -122,7 +122,7 @@ AddEventHandler('esx_advancedjail:jailPlayer', function(_jailTime, _jailLoc, _na
 		ResetPedMovementClipset(playerPed, 0)
 
 		TriggerEvent('esx_basicneeds:healPlayer')
-		TriggerServerEvent('esx_advancedjail:removeInventory', amount)
+		TriggerServerEvent('esx_advancedjail:removeInventory')
 
 		ESX.Game.Teleport(playerPed, JailLoc)
 		isInJail, unJail = true, false

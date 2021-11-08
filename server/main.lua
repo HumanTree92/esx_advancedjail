@@ -185,7 +185,7 @@ end)
 
 -- Remove Inventory when Jailed
 RegisterNetEvent('esx_advancedjail:removeInventory')
-AddEventHandler('esx_advancedjail:removeInventory', function(amount)
+AddEventHandler('esx_advancedjail:removeInventory', function()
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	if Config.RemoveLoadout then
