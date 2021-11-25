@@ -41,12 +41,8 @@ Config.JailLocations = {
 
 -- Clothing Locations
 Config.Zones = {
-	MissionRow_InsideJail = {
-		Coords = vector3(463.89, -998.08, 23.95)
-	},
-	BolingBroke_OutsideExit = {
-		Coords = vector3(1850.51, 2586.14, 44.67)
-	}
+	vector3(463.89, -998.08, 23.95), -- Mission Row
+	vector3(1850.51, 2586.14, 44.67) -- Prison
 }
 
 Config.Uniforms = {

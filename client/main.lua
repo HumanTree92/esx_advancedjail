@@ -415,13 +415,13 @@ Citizen.CreateThread(function()
 		local isInMarker, letSleep, currentZone = false, true
 
 		for k,v in pairs(Config.Zones) do
-			local distance = #(playerCoords - v.Coords)
+			local distance = #(playerCoords - v)
 
 			if distance < Config.DrawDistance then
 				letSleep = false
 
 				if Config.MarkerInfo.Type ~= -1 then
-					DrawMarker(Config.MarkerInfo.Type, v.Coords, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerInfo.x, Config.MarkerInfo.y, Config.MarkerInfo.z, Config.MarkerInfo.r, Config.MarkerInfo.g, Config.MarkerInfo.b, 100, false, true, 2, false, false, false, false)
+					DrawMarker(Config.MarkerInfo.Type, v, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerInfo.x, Config.MarkerInfo.y, Config.MarkerInfo.z, Config.MarkerInfo.r, Config.MarkerInfo.g, Config.MarkerInfo.b, 100, false, true, 2, false, false, false, false)
 				end
 
 				if distance < Config.MarkerInfo.x then
